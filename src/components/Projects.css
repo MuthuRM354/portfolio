@@ -1,0 +1,515 @@
+/* ===== Projects Section Styles ===== */
+.projects-section {
+  padding: 2rem 1.5rem; /* Reduced for content-fit */
+  display: flex;
+  align-items: center;
+  /* Removed min-height: 100vh for content-fit */
+}
+
+
+
+.projects-container {
+  max-width: 87.5rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.projects-content {
+  transform: translateY(2.5rem);
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects-content.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ===== Section Header ===== */
+.projects-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.header-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.header-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--neon-purple);
+}
+
+.header-text {
+  font-family: var(--font-pixel);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  color: var(--neon-purple);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.header-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 auto 1.5rem;
+  max-width: 14rem;
+}
+.header-divider::before,
+.header-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border-accent));
+}
+.header-divider::after {
+  background: linear-gradient(90deg, var(--glass-border-accent), transparent);
+}
+
+/* ===== Projects Grid ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.project-item {
+  transform: translateY(2.5rem);
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: var(--delay);
+}
+
+.project-item.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ===== Project Cards ===== */
+.project-card {
+  height: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: scale(1.02) translateY(-4px);
+}
+
+.project-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ===== Project Header ===== */
+.project-header {
+  margin-bottom: 1.5rem;
+}
+
+.subtitle-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.subtitle-text {
+  font-family: var(--font-terminal);
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  
+}
+
+.subtitle-text.purple {
+  
+}
+
+.subtitle-text.cyan {
+  
+}
+
+.subtitle-text.green {
+  
+}
+
+.project-title {
+  font-family: var(--font-pixel);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.project-description {
+  font-family: var(--font-terminal);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ===== Technologies ===== */
+.technologies-section {
+  margin-bottom: 1.5rem;
+}
+
+.technologies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-badge {
+  padding: 0.25rem 0.75rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-badge:hover {
+  transform: translateY(-2px);
+}
+
+.tech-text {
+  font-family: var(--font-terminal);
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ===== Achievements ===== */
+.achievements-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: var(--glass-bg-tertiary);
+  border: 1px solid var(--glass-border-secondary);
+}
+
+.achievement-border--purple { border-color: rgba(201, 168, 76, 0.3); }
+.achievement-border--cyan   { border-color: rgba(201, 168, 76, 0.3); }
+.achievement-border--green  { border-color: rgba(201, 168, 76, 0.3); }
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem 0;
+}
+
+.achievement-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.125rem;
+  transition: all 0.3s ease;
+}
+
+.achievement-icon.purple {
+  color: var(--neon-purple);
+  
+}
+
+.achievement-icon.cyan {
+  color: var(--neon-cyan);
+  
+}
+
+.achievement-icon.green {
+  color: var(--neon-green);
+  
+}
+
+.achievement-text {
+  font-family: var(--font-terminal);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ===== Action Buttons ===== */
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.primary-button {
+  flex: 1;
+}
+
+.view-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-terminal);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.view-button:hover {
+  transform: scale(1.02);
+}
+
+.button-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.github-button {
+  width: 3rem;
+  height: 3rem;
+}
+
+.github-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  background: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.github-btn.purple {
+  color: var(--neon-purple);
+}
+
+.github-btn.cyan {
+  color: var(--neon-cyan);
+}
+
+.github-btn.green {
+  color: var(--neon-green);
+}
+
+.github-btn:hover {
+  transform: scale(1.1);
+}
+
+.github-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ===== Project Card Color Schemes ===== */
+.project-card.purple:hover {
+  box-shadow: 
+    0 10px 40px rgba(201, 168, 76, 0.2),
+    0 0 20px rgba(201, 168, 76, 0.1);
+}
+
+.project-card.cyan:hover {
+  box-shadow: 
+    0 10px 40px rgba(201, 168, 76, 0.2),
+    0 0 20px rgba(201, 168, 76, 0.1);
+}
+
+.project-card.green:hover {
+  box-shadow: 
+    0 10px 40px rgba(201, 168, 76, 0.2),
+    0 0 20px rgba(201, 168, 76, 0.1);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 3rem 1rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .projects-header {
+    margin-bottom: 3rem;
+  }
+  
+  .header-text {
+    font-size: 2rem;
+  }
+  
+  .header-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  
+  .project-content {
+    padding: 1.25rem;
+  }
+  
+  .project-title {
+    font-size: 1.1rem;
+  }
+  
+  .project-description {
+    font-size: 0.85rem;
+  }
+  
+  .technologies-grid {
+    gap: 0.4rem;
+  }
+  
+  .tech-text {
+    font-size: 0.7rem;
+  }
+  
+  .achievement-text {
+    font-size: 0.8rem;
+  }
+  
+  .view-button {
+    font-size: 0.75rem;
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 2rem 0.75rem;
+  }
+  
+  .header-title {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .header-text {
+    font-size: 1.75rem;
+  }
+  
+  .project-content {
+    padding: 1rem;
+  }
+  
+  .project-title {
+    font-size: 1rem;
+  }
+  
+  .achievements-container {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+  
+  .action-buttons {
+    gap: 0.5rem;
+  }
+  
+  .github-button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .view-button {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes projectFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Note: projectFloat animation removed - conflicts with transform on hover */
+
+/* ===== Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+  .projects-content,
+  .project-item,
+  .project-card,
+  .tech-badge,
+  .view-button,
+  .github-btn {
+    transition: none;
+    animation: none;
+  }
+  
+  .projects-content.visible,
+  .project-item.visible {
+    transform: none;
+  }
+  
+  .project-card:hover,
+  .tech-badge:hover,
+  .view-button:hover,
+  .github-btn:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .project-description,
+  .achievement-text {
+    color: var(--text-primary);
+  }
+  
+  .subtitle-text {
+    border-bottom: 1px solid currentColor;
+  }
+}
+
+/* ===== Focus States ===== */
+.project-card:focus,
+.view-button:focus,
+.github-btn:focus {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+.project-card:focus-visible,
+.view-button:focus-visible,
+.github-btn:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+/* === Scroll-reveal override: visibility now handled by sr-section/[data-sr] === */
+.projects-content {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.project-item {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* === Scroll-reveal override === */
+.projects-content { opacity: 1 !important; transform: none !important; }
+.project-item { opacity: 1 !important; transform: none !important; }

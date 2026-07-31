@@ -1,0 +1,143 @@
+/* GlassContainer.css — Luxury glass surfaces */
+
+.glass-container {
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: var(--glass-blur);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* ── Variants ── */
+.glass-primary {
+  background: var(--glass-bg-primary);
+  border: 1px solid var(--glass-border-primary);
+  border-radius: 2px;
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-secondary {
+  background: var(--glass-bg-secondary);
+  border: 1px solid var(--glass-border-secondary);
+  border-radius: 2px;
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-tertiary {
+  background: var(--glass-bg-tertiary);
+  border: 1px solid var(--glass-border-tertiary);
+  border-radius: 1px;
+}
+
+.glass-card {
+  background: var(--glass-bg-card);
+  border: 1px solid var(--glass-border-primary);
+  border-radius: 2px;
+  box-shadow: var(--glass-shadow);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--glass-border-accent);
+}
+
+/* ── Gold accent border ── */
+.glass-cyan,
+.glass-gold {
+  border-color: var(--glass-border-accent);
+  box-shadow: 0 0 20px var(--accent-glow-dim);
+}
+
+.glass-cyan:hover,
+.glass-gold:hover {
+  box-shadow: 0 0 32px var(--accent-glow);
+  border-color: rgba(var(--gold-rgb), 0.3);
+}
+
+/* Map remaining color variants to muted equivalents */
+.glass-purple {
+  border-color: var(--glass-border-primary);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-magenta {
+  border-color: var(--glass-border-primary);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-green {
+  border-color: rgba(var(--neon-green-rgb), 0.2);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-blue {
+  border-color: rgba(107, 143, 171, 0.2);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-yellow {
+  border-color: var(--glass-border-accent);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-red {
+  border-color: rgba(171, 112, 112, 0.2);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-gray, .glass-subtle {
+  border-color: var(--glass-border-secondary);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-gradient {
+  border: 1px solid var(--glass-border-accent);
+  box-shadow: 0 0 0 1px var(--glass-border-secondary), 0 0 20px var(--accent-glow-dim);
+}
+
+/* ── Interactive ── */
+.glass-interactive {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.glass-interactive:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 32px var(--accent-glow);
+}
+
+.glass-interactive::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(var(--gold-rgb), 0.04), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glass-interactive:hover::before {
+  opacity: 1;
+}
+
+/* ── Content wrapper ── */
+.glass-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* ── Ripple ── */
+.glass-ripple {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--gold-rgb), 0.2) 0%, transparent 70%);
+  transform: scale(0);
+  animation: ripple-animation 0.9s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to { transform: scale(2.5); opacity: 0; }
+}

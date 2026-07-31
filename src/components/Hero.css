@@ -1,0 +1,512 @@
+/* Hero.css - Holographic ID Card Premium */
+.hero-wow-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 4rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient Glows */
+.hero-ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  opacity: 0.35;
+  animation: floatAmbient 12s infinite alternate ease-in-out;
+}
+
+.glow-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--neon-cyan);
+  top: 5%;
+  left: -150px;
+}
+
+.glow-2 {
+  width: 600px;
+  height: 600px;
+  background: var(--neon-purple);
+  bottom: -150px;
+  right: -150px;
+  animation-delay: -6s;
+}
+
+@keyframes floatAmbient {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(60px, 60px) scale(1.15); }
+}
+
+.hero-wow-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  max-width: 1400px;
+  width: 100%;
+  z-index: 10;
+  align-items: center;
+}
+
+/* Left Column Styling */
+.hero-wow-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  background: var(--glass-bg-card);
+  border: 1px solid var(--glass-border-accent);
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px var(--accent-glow-dim);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--neon-purple);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--neon-purple);
+  animation: statusBlink 2s infinite;
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.status-text {
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  color: var(--neon-purple);
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.hero-wow-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.text-gradient-animate {
+  background: linear-gradient(270deg, var(--neon-cyan), var(--neon-purple), var(--neon-cyan));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientSweep 5s linear infinite;
+}
+
+@keyframes gradientSweep {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.hero-wow-role {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-code);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  background: var(--glass-bg-secondary);
+  padding: 1rem 1.5rem;
+  border-left: 3px solid var(--neon-cyan);
+  margin-bottom: 2rem;
+  border-radius: 0 8px 8px 0;
+  width: 100%;
+}
+
+.role-icon {
+  color: var(--neon-cyan);
+}
+
+.role-prefix {
+  color: var(--text-tertiary);
+}
+
+.role-typewriter {
+  color: var(--neon-purple);
+  font-weight: 500;
+}
+
+.role-cursor {
+  color: var(--neon-purple);
+  animation: blink 1s step-end infinite;
+}
+
+.hero-wow-bio {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  max-width: 600px;
+}
+
+.hero-wow-cta {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.btn-wow-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--bg-app);
+  background: var(--text-primary);
+  border-radius: 8px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.btn-wow-primary .btn-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.btn-wow-primary .btn-glow {
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.btn-wow-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+.btn-wow-primary:hover .btn-glow {
+  left: 100%;
+}
+
+.btn-wow-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-family: var(--font-code);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  background: var(--glass-bg-tertiary);
+  border: 1px solid var(--glass-border-primary);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-wow-secondary:hover {
+  background: var(--glass-bg-secondary);
+  border-color: var(--glass-border-accent);
+  color: var(--text-primary);
+  transform: translateY(-3px);
+}
+
+.hero-wow-metrics {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border-secondary);
+  width: 100%;
+}
+
+.metric { display: flex; flex-direction: column; gap: 0.25rem; }
+.metric-val { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--neon-cyan); }
+.metric-lbl { font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; }
+.metric-divider { width: 1px; height: 30px; background: var(--glass-border-primary); }
+
+/* =========================================
+   RIGHT COLUMN: HOLOGRAPHIC ID CARD
+   ========================================= */
+.hero-wow-visual {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card Wrapper (handles the 3D transform) */
+.holographic-card-wrapper {
+  position: relative;
+  width: 340px;
+  height: 480px;
+  border-radius: 24px;
+  transform-style: preserve-3d;
+  animation: cardBreathe 6s ease-in-out infinite alternate;
+  cursor: pointer;
+}
+
+/* Pause breathing when hovering */
+.holographic-card-wrapper:hover {
+  animation-play-state: paused;
+}
+
+@keyframes cardBreathe {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-15px) scale(1.02); }
+}
+
+/* Conic Gradient Animated Border */
+.holo-card-border {
+  position: absolute;
+  inset: -3px;
+  border-radius: 26px;
+  background: conic-gradient(
+    var(--neon-cyan) 0deg, 
+    var(--neon-purple) 90deg, 
+    var(--neon-cyan) 180deg, 
+    var(--neon-purple) 270deg, 
+    var(--neon-cyan) 360deg
+  );
+  animation: spinBorder 4s linear infinite;
+  z-index: 1;
+}
+
+@keyframes spinBorder {
+  100% { transform: rotate(360deg); }
+}
+
+/* Main Inner Card (Glassmorphism) */
+.holo-card-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: var(--glass-bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border-primary);
+  overflow: hidden;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), inset 0 0 40px var(--accent-glow-dim);
+}
+
+/* Dynamic Glare */
+.holo-glare {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+/* Photo Section */
+.holo-photo-container {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 72%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border-secondary);
+}
+
+.holo-photo {
+  width: 100%;
+
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  filter: contrast(1.1) brightness(0.9) grayscale(20%);
+}
+
+/* Subtle Scanlines over Photo */
+.holo-scanlines {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(15, 23, 42, 0) 50%,
+    rgba(15, 23, 42, 0.25) 50%
+  );
+  background-size: 75% 4px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Details Section */
+.holo-details {
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  z-index: 3;
+}
+
+.holo-name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+}
+
+.holo-title {
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  color: var(--neon-purple);
+  margin-bottom: 0.4rem;
+}
+
+/* Green Status Indicator */
+.holo-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  font-family: var(--font-body);
+  font-weight: 500;
+  margin-top: 0;
+}
+
+.holo-status-indicator {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.holo-status-indicator .core {
+  width: 6px;
+  height: 6px;
+  background: #10B981; /* Success Green */
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.holo-status-indicator .ping {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #10B981;
+  border-radius: 50%;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  z-index: 1;
+}
+
+@keyframes ping {
+  75%, 100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Floating Badges */
+.holo-badge {
+  position: absolute;
+  padding: 0.4rem 0.8rem;
+  background: var(--glass-bg-card);
+  border: 1px solid var(--glass-border-accent);
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 20;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.badge-react {
+  top: 15%;
+  left: -20px;
+  animation: drift 4s infinite alternate ease-in-out;
+}
+
+.badge-java {
+  top: 40%;
+  right: -25px;
+  animation: drift 5s infinite alternate-reverse ease-in-out;
+}
+
+.badge-db {
+  bottom: -15px;
+  left: 20%;
+  animation: drift 6s infinite alternate ease-in-out;
+}
+
+@keyframes drift {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-wow-container { grid-template-columns: 1fr; text-align: center; }
+  .hero-wow-content { align-items: center; }
+  .hero-wow-role { justify-content: center; border-left: none; border-bottom: 3px solid var(--neon-cyan); border-radius: 8px; }
+  .hero-wow-cta, .hero-wow-metrics { justify-content: center; }
+  .hero-wow-visual {
+    height: auto;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .holographic-card-wrapper {
+    transform: none !important;
+    /* Use auto margins + cap width so card never overflows container */
+    margin: 0 auto;
+    max-width: calc(100vw - 4rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-wow-section { padding: 7rem 2rem 5rem; }
+  .hero-wow-title { font-size: 2.8rem; }
+  .hero-wow-role { font-size: 1rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  .hero-wow-cta { flex-direction: column; width: 100%; }
+  .hero-wow-metrics { display: none; }
+  .holographic-card-wrapper { width: 300px; height: 430px; max-width: calc(100vw - 4rem); }
+}
+
+@media (max-width: 480px) {
+  .hero-wow-section { padding: 5.5rem 1rem 5rem; }
+  .hero-wow-title { font-size: 2.1rem; }
+  .hero-wow-bio { font-size: 1rem; margin-bottom: 2rem; }
+  .hero-wow-cta { gap: 0.75rem; }
+  .btn-wow-primary,
+  .btn-wow-secondary { padding: 0.8rem 1.25rem; font-size: 0.95rem; justify-content: center; }
+  /* Card: 260px wide or 90% of screen, whichever fits — always centered */
+  .holographic-card-wrapper {
+    width: min(260px, 90vw);
+    height: min(370px, calc(90vw * 1.42));
+    max-width: none;
+  }
+  .holo-badge { display: none; }
+  .hero-wow-visual { padding: 1rem 0; }
+  .hero-status-pill { padding: 0.4rem 1rem; }
+  .status-text { font-size: 0.72rem; }
+  .hero-wow-role { padding: 0.75rem 1rem; }
+}
+

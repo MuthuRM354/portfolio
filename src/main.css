@@ -1,0 +1,361 @@
+/* main.css - Global foundation for premium portfolio */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* =============================================================
+   :root — Light theme defaults (the unprefixed token set).
+   .dark — Dark theme overrides applied when <html class="dark">.
+   ============================================================= */
+
+:root {
+  /* Typography - Dark Tech Premium */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-pixel: 'Inter', sans-serif;
+  --font-terminal: 'JetBrains Mono', monospace;
+  --font-code: 'JetBrains Mono', monospace;
+  --font-size: 15px;
+
+  /* Light theme accent colours — darker so they read on white */
+  --neon-cyan: #4338CA;     /* Deep Indigo — readable on light bg */
+  --neon-purple: #0284C7;   /* Deep Cyan-Blue — readable on light bg */
+  --neon-magenta: #7C3AED;  /* Deep Violet */
+  --neon-green: #0369A1;    /* Deep Teal-Blue */
+  --neon-orange: #4338CA;
+  --neon-blue: #0284C7;
+  --neon-red: #4338CA;
+  --neon-yellow: #0369A1;
+
+  --neon-cyan-rgb: 67, 56, 202;
+  --neon-purple-rgb: 2, 132, 199;
+  --neon-magenta-rgb: 124, 58, 237;
+  --neon-green-rgb: 3, 105, 161;
+
+  --bg-app: #F8FAFC;
+
+  /* Darker text for better contrast on white */
+  --text-primary: #0F172A;
+  --text-secondary: #1E293B;
+  --text-tertiary: #334155;
+  --text-muted: #475569;
+
+  --accent-color: var(--neon-cyan);
+  --accent-glow: rgba(67, 56, 202, 0.12);
+  --accent-glow-dim: rgba(67, 56, 202, 0.06);
+
+  --glass-bg-primary: rgba(255, 255, 255, 0.85);
+  --glass-bg-secondary: rgba(255, 255, 255, 0.7);
+  --glass-bg-tertiary: rgba(255, 255, 255, 0.5);
+  --glass-bg-card: rgba(255, 255, 255, 0.9);
+
+  --glass-border-primary: rgba(15, 23, 42, 0.10);
+  --glass-border-secondary: rgba(15, 23, 42, 0.06);
+  --glass-border-tertiary: rgba(15, 23, 42, 0.03);
+  --glass-border-accent: rgba(67, 56, 202, 0.18);
+
+  --glass-blur: blur(20px);
+  --glass-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+  --text-shadow-neon: none;
+  --text-shadow-light: none;
+  --grid-color: rgba(15, 23, 42, 0.05);
+}
+
+/* Dark theme — Dark Tech Premium */
+.dark {
+  --neon-cyan: #818CF8;     /* Indigo/Violet */
+  --neon-purple: #22D3EE;   /* Cyan-Teal */
+  --neon-magenta: #818CF8;  
+  --neon-green: #22D3EE;    
+  --neon-orange: #818CF8;   
+  --neon-blue: #22D3EE;     
+  --neon-red: #818CF8;      
+  --neon-yellow: #22D3EE;   
+
+  --neon-cyan-rgb: 129, 140, 248;
+  --neon-purple-rgb: 34, 211, 238;
+  --neon-magenta-rgb: 129, 140, 248;
+  --neon-green-rgb: 34, 211, 238;
+
+  /* Cool blue-black */
+  --bg-app: #0A0A0F; 
+  
+  /* Cool White Text */
+  --text-primary: #F1F5F9;   
+  --text-secondary: #CBD5E1; 
+  --text-tertiary: #94A3B8;  
+  --text-muted: #64748B;     
+
+  --accent-color: var(--neon-cyan);
+  --accent-glow: rgba(129, 140, 248, 0.15);
+  --accent-glow-dim: rgba(129, 140, 248, 0.05);
+
+  /* Deep Glass Surfaces */
+  --glass-bg-primary: rgba(15, 23, 42, 0.4);   
+  --glass-bg-secondary: rgba(15, 23, 42, 0.2);
+  --glass-bg-tertiary: rgba(15, 23, 42, 0.1);
+  --glass-bg-card: rgba(15, 23, 42, 0.6);      
+
+  /* Clean structured borders */
+  --glass-border-primary: rgba(255, 255, 255, 0.06);
+  --glass-border-secondary: rgba(255, 255, 255, 0.03);
+  --glass-border-tertiary: rgba(255, 255, 255, 0.015);
+  --glass-border-accent: rgba(129, 140, 248, 0.2);
+
+  --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+
+  --text-shadow-neon: none;
+  --text-shadow-light: none;
+
+  --grid-color: rgba(255, 255, 255, 0.025);
+}
+
+/* =========================
+   Reset and base
+   ========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-app);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   Global Grid overlay (Vercel Style)
+   ========================= */
+
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: 
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
+
+/* =========================
+   Animations
+   ========================= */
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes glow {
+  from { filter: none; }
+  to   { filter: none; }
+}
+
+/* =========================
+   Utility Classes
+   ========================= */
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, var(--neon-cyan), var(--neon-purple));
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+}
+
+/* =========================
+   Apple-Style Scroll Reveal
+   ========================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  /* 
+    Apple uses a very smooth, slightly slow cubic-bezier 
+    for that elegant "floating in" feel 
+  */
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggering utility for items in a grid/list */
+.reveal.delay-100 { transition-delay: 100ms; }
+.reveal.delay-200 { transition-delay: 200ms; }
+.reveal.delay-300 { transition-delay: 300ms; }
+.reveal.delay-400 { transition-delay: 400ms; }
+.reveal.delay-500 { transition-delay: 500ms; }
+
+/* =========================
+   Apple-style Scroll Reveal
+   ========================= */
+
+/* Section wrapper — starts hidden */
+.sr-section {
+  opacity: 0;
+  transform: translateY(48px);
+  transition:
+    opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.sr-section.sr-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Individual child elements */
+[data-sr] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+[data-sr].sr-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide from left */
+[data-sr="left"] {
+  transform: translateX(-40px);
+}
+[data-sr="left"].sr-visible {
+  transform: translateX(0);
+}
+
+/* Slide from right */
+[data-sr="right"] {
+  transform: translateX(40px);
+}
+[data-sr="right"].sr-visible {
+  transform: translateX(0);
+}
+
+/* Scale in (for cards) */
+[data-sr="scale"] {
+  transform: scale(0.92) translateY(24px);
+}
+[data-sr="scale"].sr-visible {
+  transform: scale(1) translateY(0);
+}
+
+/* Fade only (for subtle elements) */
+[data-sr="fade"] {
+  transform: none;
+}
+[data-sr="fade"].sr-visible {
+  transform: none;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .sr-section,
+  [data-sr] {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =========================
+   Mobile global fixes
+   ========================= */
+
+/* Prevent horizontal overflow on all screens */
+*, *::before, *::after {
+  max-width: 100%;
+}
+
+/* Mobile — safe padding so bottom nav doesn't overlap last content */
+@media (max-width: 768px) {
+  /* Side navbar switches to bottom bar — add body padding */
+  body { padding-bottom: 60px; }
+
+  /* Tighten section headings on mobile */
+  h2 { font-size: clamp(1.6rem, 6vw, 2.5rem); }
+  h3 { font-size: clamp(1.1rem, 4vw, 1.5rem); }
+
+  /* Prevent images from overflowing */
+  img { max-width: 100%; height: auto; }
+}
+
+@media (max-width: 480px) {
+  /* Reduce base font size slightly on very small screens */
+  html { font-size: 14px; }
+
+  /* Ensure no horizontal scroll from translated elements */
+  .sr-section,
+  [data-sr="left"],
+  [data-sr="right"] {
+    transform: translateY(24px);
+  }
+  [data-sr="left"].sr-visible,
+  [data-sr="right"].sr-visible {
+    transform: translateY(0);
+  }
+}

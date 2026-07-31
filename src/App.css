@@ -1,0 +1,74 @@
+/* App.css - Main application layout */
+
+.app-container {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+}
+
+/* Background Layer */
+.background-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.app-container.dark .background-layer {
+  opacity: 0.8;
+}
+
+.app-container.light .background-layer {
+  opacity: 1;
+}
+
+/* Ambient Background - Removed to let main.css handle it */
+.ambient-background {
+  display: none;
+}
+
+/* Main Content */
+.main-content {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+
+/* Hero Section */
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 50;
+  isolation: isolate;
+}
+
+
+.hero-outer {
+  position: relative;
+  z-index: 2;
+}
+
+/* Content Sections */
+.sections-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 20;
+}
+
+.sections-content {
+  position: relative;
+  width: 100%;
+  z-index: 30;
+}
+
+/* Side Navigation */
+.side-navigation {
+  position: relative;
+  z-index: 1000;
+}

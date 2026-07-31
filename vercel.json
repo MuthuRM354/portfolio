@@ -1,0 +1,7 @@
+{
+  "name": "muthumanikandan-portfolio",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "framework": "create-react-app",
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+}

@@ -1,0 +1,76 @@
+/* ===== Education Section ===== */
+.education-section {
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.education-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.education-content {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== Section Header ===== */
+.education-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.education-header .header-icon {
+  color: var(--neon-cyan);
+}
+
+.education-header .header-text {
+  color: var(--neon-cyan);
+}
+
+/* ===== Card Grid ===== */
+.education-section .ec-grid {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+/* Education cards have less content — shorter expanded height */
+.education-section .ec-card:hover,
+.education-section .ec-card:focus-within {
+  height: 18em;
+  box-shadow: 0 1em 2.5em rgba(0, 0, 0, 0.35);
+  margin-bottom: 0.5em;
+  outline: none;
+}
+
+/* ===== Tag label ===== */
+.ec-tag-label {
+  font-family: var(--font-terminal);
+  font-size: 0.72em;
+  color: var(--ec-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.45em;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .education-section { padding: 3rem 1rem; }
+  .education-header { margin-bottom: 2rem; }
+  .education-section .ec-card:hover,
+  .education-section .ec-card:focus-within { height: 22em; }
+}
+
+@media (max-width: 480px) {
+  .education-section { padding: 2rem 0.75rem; }
+  .education-section .ec-card:hover,
+  .education-section .ec-card:focus-within { height: 26em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .education-section .ec-card:hover,
+  .education-section .ec-card:focus-within { height: 18em; }
+}
