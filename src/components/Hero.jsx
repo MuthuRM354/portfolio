@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Download, ArrowRight, Code, Database, Server, Layout, Terminal, CheckCircle2 } from 'lucide-react';
+import resumeData from '../data/resume.json';
 import './Hero.css';
 
 const roles = ['Full Stack Architecture', 'React Ecosystems', 'Java Microservices', 'AI Integrations'];
@@ -101,7 +102,11 @@ const Hero = () => {
               <span className="btn-content">Initialize Projects <ArrowRight size={18} /></span>
               <div className="btn-glow"></div>
             </a>
-            <a href="/resume.pdf" className="btn-wow-secondary">
+            <a
+              href={resumeData.resume.filePath}
+              download={resumeData.resume.fileName}
+              className="btn-wow-secondary"
+            >
               <Code size={18} /> Download_Resume.pdf
             </a>
           </div>

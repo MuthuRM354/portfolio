@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Award, Calendar, CheckCircle, Star } from 'lucide-react';
 import GlassContainer from './GlassContainer';
+import resumeData from '../data/resume.json';
 import './Certifications.css';
 
 const Certifications = () => {
@@ -24,43 +25,7 @@ const Certifications = () => {
     return () => observer.disconnect();
   }, []);
 
-  const certifications = [
-    {
-      title: 'Full Stack Development with GenAI',
-      issuer: 'NIIT',
-      date: 'Nov 2024',
-      skills: ['React.js', 'Spring Boot', 'REST APIs', 'GenAI integration'],
-      colorScheme: 'purple',
-      status: 'Completed',
-      borderColor: 'purple'
-    },
-    {
-      title: 'TCS iON NQT-IT',
-      issuer: 'TCS',
-      date: 'Apr 2025',
-      score: '69.13%',
-      colorScheme: 'cyan',
-      status: 'Achieved',
-      borderColor: 'cyan'
-    },
-    {
-      title: 'TCS iON NQT Psychometric Assessment',
-      issuer: 'TCS',
-      date: 'Apr 2025',
-      skills: ['Open-mindedness', 'Thoroughness', 'Sociableness', 'Motivation'],
-      note: 'High scores in all parameters',
-      colorScheme: 'green',
-      status: 'Excelled',
-      borderColor: 'green'
-    }
-  ];
-
-  const stats = [
-    { number: '3+', label: 'Certifications', borderColor: 'purple' },
-    { number: '69.13%', label: 'NQT-IT Score', borderColor: 'cyan' },
-    { number: '100%', label: 'Course Completion', borderColor: 'green' },
-    { number: 'High', label: 'Assessment Scores', borderColor: 'magenta' }
-  ];
+  const { certifications, stats } = resumeData;
 
   return (
     <section id="certifications" className="certifications-section" ref={sectionRef}>

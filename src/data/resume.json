@@ -1,0 +1,45 @@
+{
+  "resume": {
+    "name": "Muthu Manikandan R",
+    "title": "Full Stack Engineer",
+    "fileName": "Muthu_Manikandan_R_Resume.pdf",
+    "filePath": "/Muthu_Manikandan_R_Resume.pdf",
+    "lastUpdated": "2026-08-01"
+  },
+  "certifications": [
+    {
+      "title": "Full Stack Development with GenAI",
+      "issuer": "NIIT",
+      "date": "Nov 2024",
+      "skills": ["React.js", "Spring Boot", "REST APIs", "GenAI integration"],
+      "colorScheme": "purple",
+      "status": "Completed",
+      "borderColor": "purple"
+    },
+    {
+      "title": "TCS iON NQT-IT",
+      "issuer": "TCS",
+      "date": "Apr 2025",
+      "score": "69.13%",
+      "colorScheme": "cyan",
+      "status": "Achieved",
+      "borderColor": "cyan"
+    },
+    {
+      "title": "TCS iON NQT Psychometric Assessment",
+      "issuer": "TCS",
+      "date": "Apr 2025",
+      "skills": ["Open-mindedness", "Thoroughness", "Sociableness", "Motivation"],
+      "note": "High scores in all parameters",
+      "colorScheme": "green",
+      "status": "Excelled",
+      "borderColor": "green"
+    }
+  ],
+  "stats": [
+    { "number": "3+", "label": "Certifications", "borderColor": "purple" },
+    { "number": "69.13%", "label": "NQT-IT Score", "borderColor": "cyan" },
+    { "number": "100%", "label": "Course Completion", "borderColor": "green" },
+    { "number": "High", "label": "Assessment Scores", "borderColor": "magenta" }
+  ]
+}
