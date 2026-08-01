@@ -1,185 +1,101 @@
-# Modern Portfolio Website - Neon Theme
+# Modern Portfolio Website — Neon Theme
 
-A cutting-edge portfolio website built with React.js featuring a cyberpunk neon aesthetic, stunning animations, and responsive design.
+A personal portfolio site built with React, featuring a cyberpunk/neon visual theme, glassmorphism UI, an animated background, and a built-in AI chat agent for visitors to ask about my background.
 
-## 🚀 Features
+**Live repo:** [MuthuRM354/portfolio](https://github.com/MuthuRM354/portfolio)
 
-- **Pure React.js** - No TypeScript dependencies, clean JavaScript/JSX
-- **Neon Cyberpunk Theme** - Stunning visual effects with glassmorphism
-- **Performance Optimized** - Lazy loading and React.memo for optimal performance
-- **Fully Responsive** - Mobile-first design that works on all devices
-- **Smooth Animations** - CSS keyframes and intersection observers
-- **Modern Architecture** - Modular component structure with custom hooks
-- **Theme Support** - Dark/light theme toggle with localStorage persistence
-- **PWA Ready** - Service worker support and manifest file
+## Features
 
-## 🎨 Visual Components
+- **Neon / cyberpunk theme** with a dark-first design and a light/dark toggle (persisted to `localStorage`, falls back to `prefers-color-scheme`)
+- **Animated background** — particle/neural-network style canvas effects
+- **Glassmorphism UI** via a reusable `GlassContainer` component
+- **Scroll-reveal animations** using `IntersectionObserver` (`useScrollReveal` hook)
+- **AI Chat Agent** (`ChatAgent.jsx`) powered by the Google Generative AI SDK, so visitors can ask questions about my experience
+- **Resume download** — bundled PDF, plus an animated "mail" contact affordance
+- **Fully responsive**, single-page layout with a fixed side navigation bar
 
-- **AI Human Handshake Animation** - SVG-based animated hero visual
-- **Animated Background** - Particle systems, neural networks, and binary rain
-- **Glass Containers** - Beautiful glassmorphism effects throughout
-- **Neon Effects** - Glowing borders, text effects, and cyberpunk styling
-- **Interactive Navigation** - Side navbar with active section tracking
+## Tech Stack
 
-## 📁 Project Structure
+- **React 18** (Create React App / `react-scripts`)
+- **React Router DOM** for navigation
+- `@google/generative-ai` for the chat agent
+- `@emailjs/browser` for the contact form
+- `lucide-react` for icons
+- Plain CSS (custom properties/theming, no CSS-in-JS)
+
+## Project Structure
 
 ```
 src/
-├── App.jsx                          # Main application component
-├── index.js                         # React entry point
+├── App.jsx                    # Root component, theme context, scroll-reveal setup
+├── main.css / App.css         # Global styles and theme variables
 ├── components/
-│   ├── HeroSection/                 # Landing section with AI animation
-│   ├── AboutSection/                # About information with glass cards
-│   ├── SkillsSection/               # Technical skills showcase
-│   ├── ProjectsSection/             # Portfolio projects
-│   ├── ExperienceSection/           # Work experience timeline
-│   ├── EducationSection/            # Educational background
-│   ├── CertificationsSection/       # Certifications display
-│   ├── BlogSection/                 # Blog posts
-│   ├── ContactSection/              # Contact form and information
-│   ├── navigation/
-│   │   └── SideNavbar.jsx           # Fixed side navigation
-│   ├── ui/
-│   │   └── GlassContainer.jsx       # Reusable glass effect container
-│   └── visuals/
-│       ├── AIHumanHandshake.jsx     # Hero animation component
-│       └── AnimatedBackground.jsx   # Background particle effects
-├── hooks/
-│   ├── useTheme.js                  # Theme management hook
-│   ├── useIntersectionObserver.js   # Scroll-based animations
-│   └── useScrollPosition.js         # Scroll position tracking
-└── styles/
-    ├── globals.css                  # Global styles and CSS variables
-    └── animations.css               # Keyframe animations
+│   ├── Hero.jsx                    # Landing/hero section
+│   ├── About.jsx                   # About me
+│   ├── Skills.jsx                  # Technical skills
+│   ├── Projects.jsx                 # Project showcase
+│   ├── Experience.jsx               # Work experience timeline
+│   ├── Education.jsx                # Education history
+│   ├── Certifications.jsx           # Certifications
+│   ├── Contact.jsx / ContactSocialCard.jsx  # Contact section & social links
+│   ├── AnimatedMail.jsx              # Animated contact call-to-action
+│   ├── ChatAgent.jsx                 # AI-powered chat widget
+│   ├── AnimatedBackground.jsx        # Background particle/neon effects
+│   ├── SideNavbar.jsx                # Fixed side navigation
+│   └── GlassContainer.jsx            # Reusable glassmorphism wrapper
+├── data/
+│   └── resume.json            # Structured resume data used across sections
+└── hooks/
+    └── useScrollReveal.js     # IntersectionObserver-based reveal hook
 ```
 
-## 🛠️ Tech Stack
-
-- **React 18** - Latest React with concurrent features
-- **Lucide React** - Beautiful, customizable icons
-- **CSS3** - Modern CSS with custom properties and keyframes
-- **Create React App** - Zero-config build setup
-
-## 🚦 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
-- npm or yarn
+- Node.js 14+
+- npm
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd modern-portfolio-neon
-   ```
+```bash
+git clone https://github.com/MuthuRM354/portfolio.git
+cd portfolio
+npm install
+```
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+### Environment variables
 
-3. **Start the development server**
-   ```bash
-   npm start
-   ```
+The chat agent and contact form need API keys — create a `.env` file in the project root:
 
-4. **Open your browser**
-   Navigate to `http://localhost:3000`
+```
+REACT_APP_GEMINI_API_KEY=your_google_generative_ai_key
+REACT_APP_EMAILJS_SERVICE_ID=your_emailjs_service_id
+REACT_APP_EMAILJS_TEMPLATE_ID=your_emailjs_template_id
+REACT_APP_EMAILJS_PUBLIC_KEY=your_emailjs_public_key
+```
 
-### Building for Production
+### Run locally
+
+```bash
+npm start
+```
+
+Visit `http://localhost:3000`.
+
+### Build for production
 
 ```bash
 npm run build
 ```
 
-This creates an optimized production build in the `build/` folder.
+## Available Scripts
 
-## 🎯 Customization
+- `npm start` — start the dev server
+- `npm run build` — production build
+- `npm test` — run tests
+- `npm run eject` — eject from Create React App (irreversible)
 
-### Adding Your Content
+## License
 
-1. **Personal Information**: Update the content in each section component
-2. **Projects**: Add your portfolio items in `ProjectsSection.jsx`
-3. **Experience**: Fill in your work history in `ExperienceSection.jsx`
-4. **Skills**: Modify the skills categories in `SkillsSection.jsx`
-5. **Contact**: Implement form submission in `ContactSection.jsx`
-
-### Styling Customization
-
-1. **Colors**: Modify CSS custom properties in `src/styles/globals.css`
-2. **Animations**: Adjust keyframes in `src/styles/animations.css`
-3. **Layout**: Update component-specific CSS files
-
-### Theme Customization
-
-The theme system uses CSS custom properties defined in `globals.css`:
-
-```css
-:root {
-  --cyberpunk-cyan: #00ffff;
-  --cyberpunk-pink: #ff0080;
-  --cyberpunk-purple: #8000ff;
-  --cyberpunk-blue: #0080ff;
-  /* ... more variables */
-}
-```
-
-## 📱 Responsive Design
-
-The portfolio is built with a mobile-first approach:
-- **Mobile**: 320px - 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: 1024px+
-
-## ⚡ Performance Features
-
-- **Code Splitting**: Automatic code splitting with React.lazy()
-- **Lazy Loading**: Heavy components loaded on demand
-- **Memoization**: React.memo for preventing unnecessary re-renders
-- **Optimized Images**: WebP support with fallbacks
-- **Minimal Bundle**: Tree shaking and dead code elimination
-
-## 🧩 Component Architecture
-
-Each component follows a consistent pattern:
-- **Functional Components** with hooks
-- **CSS Modules** for scoped styling
-- **PropTypes** for type checking (optional)
-- **React.memo** for performance optimization
-
-## 🎭 Animations
-
-The portfolio features multiple animation types:
-- **CSS Keyframes**: For continuous animations
-- **Intersection Observer**: For scroll-triggered animations
-- **Transform Transitions**: For hover effects
-- **SVG Animations**: For complex vector graphics
-
-## 🔧 Available Scripts
-
-- `npm start` - Start development server
-- `npm build` - Create production build
-- `npm test` - Run test suite
-- `npm eject` - Eject from Create React App (irreversible)
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🤝 Contributing
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📞 Support
-
-If you have any questions or run into issues, please open an issue on the repository.
-
----
-
-**Built with ❤️ and ⚡ for the cyberpunk future**
+MIT — see the repository for details.
